@@ -40,7 +40,7 @@ public class EventController {
         return "details";
     }
 
-   @PostMapping("/register/{id}")
+ /*  @PostMapping("/register/{id}")
     public String register(@PathVariable Long id,
                            @RequestParam String name,
                            @RequestParam String email,
@@ -51,6 +51,16 @@ public class EventController {
         model.addAttribute("event", service.getEvent(id));
 
         return "details";
-    }
-    
+    }*/
+    @PostMapping("/register/{id}")
+public String register(@PathVariable Long id,
+                       @RequestParam String name,
+                       @RequestParam String email) {
+
+    service.registerUser(id, name, email);
+
+    // 🔥 AUTO REDIRECT TO HOMEPAGE
+    return "redirect:/";
+}
+
 }
