@@ -1,0 +1,10 @@
+<h2>All Events</h2>
+<a href="/create">Create Event</a>
+
+<ul>
+  <li th:each="event : ${events}">
+    <a th:href="@{'/event/' + ${event.id}}">
+      <span th:text="${event.title}"></span>
+    </a>
+  </li>
+</ul>
